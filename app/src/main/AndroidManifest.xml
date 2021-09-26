@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DevStoriesAfrica">
+        android:theme="@style/splashScreenTheme">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
