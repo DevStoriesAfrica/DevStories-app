@@ -2,7 +2,8 @@
 
 - If you are looking to help to with a code contribution our project uses Kotlin. 
    - You can add features,fix bugs,add tests,help on architecting the app e.t.c
-- If you are a designer,you can help come up with designs for the project(chat me up on [twitter](https://twitter.com/_kibetheophilus) we plan).
+- We are using MMVM architecture,so you must have an idea on how it works.
+- Check out our [designs](https://www.figma.com/file/pTMEu96evnfbJuU1kq6x7S/DevStories?node-id=0%3A1) before you start working on anything(they are being updated on the go).
 
 # How do I make a contribution?
 
@@ -26,7 +27,7 @@ Never made an open source contribution before? Wondering how contributions work 
 
 # Where can I go for help?
 
-If you need help, you can ask questions on [twitter](https://twitter.com/_kibetheophilus) .
+If you need help, you can ask questions on our [Slack Workspace](https://join.slack.com/t/devstoriesafrica/shared_invite/zt-wjw8sf9d-99zffpJhwGGu7dmHpmpDUA) .
 
 # Code of Conduct
 
