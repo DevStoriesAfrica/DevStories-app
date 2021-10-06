@@ -12,21 +12,20 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import androidx.viewbinding.ViewBinding
 import com.devstoriesafrica.devstoriesafrica.R
+import com.devstoriesafrica.devstoriesafrica.databinding.FragmentLoginBinding
+import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+    override val bindingInflater: (LayoutInflater) -> ViewBinding
+        get() = FragmentLoginBinding::inflate
+
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.hide()
-    }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,7 +45,7 @@ class LoginFragment : Fragment() {
             30,
             Spanned.SPAN_INCLUSIVE_EXCLUSIVE
         )
-
+        binding.txtNewUser.text = spanString
     }
 
     override fun onStop() {
