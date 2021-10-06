@@ -18,4 +18,20 @@
         <item name="android:windowBackground">@drawable/splash_image</item>
         <item name="android:statusBarColor">@color/white</item>
     </style>
+    <style name="Theme.DevStoriesAfrica.CustomTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_10sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_10sdp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="Theme.DevStoriesAfrica.CustomButtonStyle" parent="TextAppearance.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="cornerRadius">@dimen/_10sdp</item>
+        <item name="backgroundColor">@color/yellow</item>
+    </style>
 </resources>
