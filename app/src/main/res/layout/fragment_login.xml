@@ -50,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:startIconTint="@color/yellow"
+        app:passwordToggleTint="@color/yellow"
         app:startIconDrawable="@drawable/ic_lock"
         android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintEnd_toEndOf="parent"

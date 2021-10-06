@@ -16,6 +16,7 @@ import androidx.viewbinding.ViewBinding
 import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentLoginBinding
 import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
+import com.google.android.material.transition.MaterialFadeThrough
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,15 +35,31 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun setupUi() {
+        initMaterialTransitions()
         initSpannable()
+        initListeners()
     }
+    private fun initMaterialTransitions() {
+        enterTransition = MaterialFadeThrough()
+        exitTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+    }
+
+    private fun initListeners() {
+        binding.txtNewUser.setOnClickListener {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            )
+        }
+    }
+
     private fun initSpannable() {
-        val spanString = SpannableString("Already have an account? Login")
+        val spanString = SpannableString("Don’t have an account? SignUp")
         val foregroundSpan = ForegroundColorSpan(
             ContextCompat.getColor(requireContext(), R.color.yellow))
         spanString.setSpan(foregroundSpan,
-            25,
-            30,
+            23,
+            29,
             Spanned.SPAN_INCLUSIVE_EXCLUSIVE
         )
         binding.txtNewUser.text = spanString
