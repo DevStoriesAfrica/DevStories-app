@@ -51,6 +51,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             )
         }
+
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+            )
+        }
     }
 
     private fun initSpannable() {
