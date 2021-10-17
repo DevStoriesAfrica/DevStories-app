@@ -10,7 +10,9 @@ class Constants {
         //EventBrite endpoints
         const val LIST_EVENTS = "organizations/{organization_id}/events"
         const val ORG_ID = "540601759971"
-        const val TOKEN = "VJMUK5SEDS2WJDUT5XCX"
+        
+        
+        const val TOKEN = "" // find it on slack
 
     }
 }
