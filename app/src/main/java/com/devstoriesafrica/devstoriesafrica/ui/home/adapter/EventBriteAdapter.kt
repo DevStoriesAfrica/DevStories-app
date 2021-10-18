@@ -1,6 +1,7 @@
 package com.devstoriesafrica.devstoriesafrica.ui.home.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -33,13 +34,14 @@ class EventBriteAdapter : RecyclerView.Adapter<EventBriteAdapter.RemoteViewHolde
         return RemoteViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RemoteViewHolder, position: Int): Unit = with(holder.binding) {
-        val event = differ.currentList[position]
-        val context = holder.itemView.context
+    override fun onBindViewHolder(holder: RemoteViewHolder, position: Int): Unit =
+        with(holder.binding) {
+            val event = differ.currentList[position]
+            val context = holder.itemView.context
 
             Glide.with(context).load(event.logo?.original?.url).into(eventPosterView)
 
-    }
+        }
 
     override fun getItemCount(): Int = differ.currentList.size
 

@@ -32,4 +32,14 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.home.fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/liveFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.home.fragments.LiveFragment"
+        android:label="fragment_live"
+        tools:layout="@layout/fragment_live" />
 </navigation>
