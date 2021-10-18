@@ -10,6 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/home_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="200dp"
+            android:visibility="gone"/>
+
         <TextView
             android:id="@+id/date_text_view"
             android:layout_width="wrap_content"
@@ -101,9 +111,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/upcoming_events_recycler"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="145dp"
             android:layout_marginStart="21dp"
             android:layout_marginTop="18dp"
+            android:visibility="gone"
             android:layout_marginEnd="21dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,18 +123,28 @@
             tools:listitem="@layout/event_item" />
 
         <TextView
+            android:id="@+id/no_upcoming_events"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Upcoming Events!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upcoming_events_text"
+            app:layout_constraintBottom_toTopOf="@id/past_events_text"/>
+
+        <TextView
             android:id="@+id/past_events_text"
             android:layout_width="wrap_content"
             android:layout_height="33dp"
             android:layout_marginStart="22dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="180dp"
             android:fontFamily="@font/nunito_regular"
             android:text="Past events"
             android:textColor="@color/black"
             android:textFontWeight="600"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upcoming_events_recycler" />
+            app:layout_constraintTop_toBottomOf="@id/upcoming_events_text" />
 
         <LinearLayout
             android:layout_width="wrap_content"
