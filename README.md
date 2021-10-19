@@ -78,4 +78,6 @@ Finally, if you've read this far, don't forget to give this repo a ⭐️. They'
 
 - We hereby acknowledge [DevStories Team](https://devstoriesafrica.com/) for the project idea and [Breens](https://twitter.com/BreensR) who designed the [DevStories App](https://www.figma.com/file/pTMEu96evnfbJuU1kq6x7S/DevStories?node-id=0%3A1)
 
-<!-- ## 📝 License -->
+## 📝 License
+
+[MIT LICENSE](mit-license.org)
