@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.devstoriesafrica.devstoriesafrica.databinding.EventItemBinding
-import com.devstoriesafrica.devstoriesafrica.models.EventX
+import com.devstoriesafrica.devstoriesafrica.models.responses.EventX
 
 class EventBriteAdapter : RecyclerView.Adapter<EventBriteAdapter.RemoteViewHolder>() {
 

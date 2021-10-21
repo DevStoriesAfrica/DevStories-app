@@ -1,19 +1,18 @@
-package com.devstoriesafrica.devstoriesafrica.repositories
+package com.devstoriesafrica.devstoriesafrica.repositories.home
 
 import android.util.Log
-import com.devstoriesafrica.devstoriesafrica.data.remote.DevStoriesApi
 import com.devstoriesafrica.devstoriesafrica.data.remote.EventBriteApi
-import com.devstoriesafrica.devstoriesafrica.models.GetEventsResponse
+import com.devstoriesafrica.devstoriesafrica.models.responses.GetEventsResponse
 import com.devstoriesafrica.devstoriesafrica.utils.Constants.Companion.ORG_ID
 import com.devstoriesafrica.devstoriesafrica.utils.Resource
 import retrofit2.HttpException
 import javax.inject.Inject
 
-class HomeRepository @Inject constructor(
+class HomeRepositoryImpl @Inject constructor(
     private val api: EventBriteApi
-) {
+): HomeRepository {
 
-    suspend fun getEvents(): Resource<GetEventsResponse>{
+    override suspend fun getEvents(): Resource<GetEventsResponse>{
         return try {
             val response = api.getEvents(
                 orgId = ORG_ID
