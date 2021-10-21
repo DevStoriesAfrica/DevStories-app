@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.devstoriesafrica.devstoriesafrica.models.responses.GetEventsResponse
 import com.devstoriesafrica.devstoriesafrica.repositories.home.HomeRepository
-import com.devstoriesafrica.devstoriesafrica.repositories.home.HomeRepositoryImpl
 import com.devstoriesafrica.devstoriesafrica.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

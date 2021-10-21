@@ -18,6 +18,9 @@ class AuthViewModel @Inject constructor(
     private val _loginStatus = MutableLiveData<Resource<LoginResponse>>()
     val loginStatus: LiveData<Resource<LoginResponse>> = _loginStatus
 
+    private val _signUpStatus = MutableLiveData<Resource<LoginResponse>>()
+    val signUpStatus: LiveData<Resource<LoginResponse>> = _signUpStatus
+
 
     fun login(email: String, password: String){
         _loginStatus.postValue(Resource.loading(null))
@@ -30,4 +33,22 @@ class AuthViewModel @Inject constructor(
             _loginStatus.postValue(response)
         }
     }
+
+    fun signUp(
+        userName: String,
+        email: String,
+        password: String
+    ){
+        _signUpStatus.postValue(Resource.loading(null))
+
+        viewModelScope.launch {
+            val response = repository.signUp(
+                userName = userName,
+                email = email,
+                password = password
+            )
+            _signUpStatus.postValue(response)
+        }
+    }
+
 }

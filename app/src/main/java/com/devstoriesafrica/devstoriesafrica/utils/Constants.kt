@@ -12,7 +12,7 @@ class Constants {
         const val ORG_ID = "540601759971"
         
         
-        const val TOKEN = "VJMUK5SEDS2WJDUT5XCX" // find it on slack
+        const val TOKEN = "" // find it on slack
 
     }
 }
