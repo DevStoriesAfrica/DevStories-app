@@ -1,4 +1,4 @@
-package com.devstoriesafrica.devstoriesafrica.models
+package com.devstoriesafrica.devstoriesafrica.models.responses
 
 data class GetEventsResponse(
     val events: List<EventX>,

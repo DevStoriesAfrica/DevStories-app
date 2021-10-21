@@ -9,18 +9,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentLoginBinding
+import com.devstoriesafrica.devstoriesafrica.ui.auth.viewmodel.AuthViewModel
 import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
+import com.devstoriesafrica.devstoriesafrica.utils.Status
 import com.google.android.material.transition.MaterialFadeThrough
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+    private val viewModel: AuthViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentLoginBinding::inflate
 
@@ -38,7 +43,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         initMaterialTransitions()
         initSpannable()
         initListeners()
+        observeViewModel()
     }
+
     private fun initMaterialTransitions() {
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
@@ -53,6 +60,21 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
 
         binding.btnLogin.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            when {
+                email.isEmpty() -> {
+                    binding.etEmail.error = "Enter Email"
+                }
+                password.isEmpty() -> {
+                    binding.etPassword.error = "Enter Password"
+                }
+                else -> {
+                    viewModel.login(email = email, password = password)
+                }
+            }
+
             findNavController().navigate(
                 LoginFragmentDirections.actionLoginFragmentToHomeFragment()
             )
@@ -62,13 +84,36 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun initSpannable() {
         val spanString = SpannableString("Don’t have an account? SignUp")
         val foregroundSpan = ForegroundColorSpan(
-            ContextCompat.getColor(requireContext(), R.color.yellow))
-        spanString.setSpan(foregroundSpan,
+            ContextCompat.getColor(requireContext(), R.color.yellow)
+        )
+        spanString.setSpan(
+            foregroundSpan,
             23,
             29,
             Spanned.SPAN_INCLUSIVE_EXCLUSIVE
         )
         binding.txtNewUser.text = spanString
+    }
+
+    //observe the data in the viewmodel
+    private fun observeViewModel() {
+        viewModel.loginStatus.observe(viewLifecycleOwner, { response ->
+            response?.let {
+                when (response.status) {
+                    Status.SUCCESS -> {
+                        findNavController().navigate(
+                            LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                        )
+                    }
+                    Status.LOADING -> {
+
+                    }
+                    Status.ERROR -> {
+                        Toast.makeText(context, "${response.message}", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        })
     }
 
     override fun onStop() {

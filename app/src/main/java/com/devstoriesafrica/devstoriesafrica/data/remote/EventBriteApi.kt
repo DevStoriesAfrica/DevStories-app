@@ -1,6 +1,6 @@
 package com.devstoriesafrica.devstoriesafrica.data.remote
 
-import com.devstoriesafrica.devstoriesafrica.models.GetEventsResponse
+import com.devstoriesafrica.devstoriesafrica.models.responses.GetEventsResponse
 import com.devstoriesafrica.devstoriesafrica.utils.Constants.Companion.LIST_EVENTS
 import retrofit2.http.GET
 import retrofit2.http.Path

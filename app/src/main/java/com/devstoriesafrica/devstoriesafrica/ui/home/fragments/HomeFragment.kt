@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentHomeBinding
-import com.devstoriesafrica.devstoriesafrica.models.EventX
+import com.devstoriesafrica.devstoriesafrica.models.responses.EventX
 import com.devstoriesafrica.devstoriesafrica.ui.home.adapter.EventBriteAdapter
 import com.devstoriesafrica.devstoriesafrica.ui.home.viewmodel.HomeViewModel
 import com.devstoriesafrica.devstoriesafrica.utils.Status
@@ -46,6 +49,17 @@ class HomeFragment : Fragment() {
         viewModel.getEvents()
         observeViewModel()
 
+        initViews()
+
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun initViews(){
+
+        binding.profileImageLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+        }
         progressBar = binding.homeProgressBar
 
         upcomingRecycler = binding.upcomingEventsRecycler
@@ -69,8 +83,8 @@ class HomeFragment : Fragment() {
                 when(result.status){
                     Status.SUCCESS -> {
                         progressBar.visibility = View.GONE
+                        //Toast.makeText(context,"${result.data}",Toast.LENGTH_LONG).show()
                         result.data?.let {
-                            //if (it.events.forEach())
                             remoteEventsAdapter.differ.submitList(it.events)
                             upcomingRecycler.adapter = remoteEventsAdapter
                             pastRecycler.adapter = remoteEventsAdapter

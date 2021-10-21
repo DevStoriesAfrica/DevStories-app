@@ -4,6 +4,10 @@ import android.content.Context
 import com.devstoriesafrica.devstoriesafrica.data.ApiInterceptor
 import com.devstoriesafrica.devstoriesafrica.data.remote.DevStoriesApi
 import com.devstoriesafrica.devstoriesafrica.data.remote.EventBriteApi
+import com.devstoriesafrica.devstoriesafrica.repositories.auth.AuthRepository
+import com.devstoriesafrica.devstoriesafrica.repositories.auth.AuthRepositoryImpl
+import com.devstoriesafrica.devstoriesafrica.repositories.home.HomeRepository
+import com.devstoriesafrica.devstoriesafrica.repositories.home.HomeRepositoryImpl
 import com.devstoriesafrica.devstoriesafrica.utils.Constants.Companion.BASE_URL
 import com.devstoriesafrica.devstoriesafrica.utils.Constants.Companion.EVENTBRITE_API
 import dagger.Module
@@ -22,9 +26,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApi(
-        @ApplicationContext context: Context
-    ): EventBriteApi {
+    fun provideRetrofit(@ApplicationContext context: Context): Retrofit {
         val apiInterceptor = ApiInterceptor(context)
         val client = OkHttpClient.Builder().addInterceptor(apiInterceptor).build()
 
@@ -33,9 +35,31 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-            .create(EventBriteApi::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun provideEventBriteApi(retrofit: Retrofit): EventBriteApi {
+        return retrofit.create(EventBriteApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDevStoriesApi(retrofit: Retrofit): DevStoriesApi {
+        return retrofit.create(DevStoriesApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideAuthRepository(api: DevStoriesApi): AuthRepository {
+        return AuthRepositoryImpl(api)
+    }
+
+    @Singleton
+    @Provides
+    fun provideHomeRepository(api: EventBriteApi): HomeRepository {
+        return HomeRepositoryImpl(api)
+    }
 
     @Singleton
     @Provides
