@@ -8,7 +8,6 @@ import com.devstoriesafrica.devstoriesafrica.repositories.auth.AuthRepository
 import com.devstoriesafrica.devstoriesafrica.repositories.auth.AuthRepositoryImpl
 import com.devstoriesafrica.devstoriesafrica.repositories.home.HomeRepository
 import com.devstoriesafrica.devstoriesafrica.repositories.home.HomeRepositoryImpl
-import com.devstoriesafrica.devstoriesafrica.utils.Constants.Companion.BASE_URL
 import com.devstoriesafrica.devstoriesafrica.utils.Constants.Companion.EVENTBRITE_API
 import dagger.Module
 import dagger.Provides

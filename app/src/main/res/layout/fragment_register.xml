@@ -136,7 +136,7 @@
             tools:layout_editor_absoluteY="26dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnSignup"
                 style="@style/Theme.DevStoriesAfrica.CustomButtonStyle"
                 android:layout_width="match_parent"
                 app:backgroundTint="@color/yellow"

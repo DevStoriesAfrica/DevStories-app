@@ -2,20 +2,18 @@ package com.devstoriesafrica.devstoriesafrica.ui.home.fragments
 
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentHomeBinding
-import com.devstoriesafrica.devstoriesafrica.models.responses.EventX
 import com.devstoriesafrica.devstoriesafrica.ui.home.adapter.EventBriteAdapter
 import com.devstoriesafrica.devstoriesafrica.ui.home.viewmodel.HomeViewModel
 import com.devstoriesafrica.devstoriesafrica.utils.Status
