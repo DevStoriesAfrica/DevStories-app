@@ -26,6 +26,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentRegisterBinding::inflate
 
+    override var bottomNavigationVisibility = View.GONE
+
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.hide()
