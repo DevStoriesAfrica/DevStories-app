@@ -37,4 +37,12 @@ abstract class BaseFragment<out T: ViewBinding> : Fragment() {
             mainActivity.setBottomNavigationVisibility(bottomNavigationVisibility)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (activity is MainActivity) {
+            val mainActivity = activity as MainActivity
+            mainActivity.setBottomNavigationVisibility(bottomNavigationVisibility)
+        }
+    }
 }
