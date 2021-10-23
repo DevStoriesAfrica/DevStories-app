@@ -36,4 +36,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
 
     }
+
+    //Enabling bottom navigation to be visible in some fragments
+    fun setBottomNavigationVisibility(visibility: Int) {
+        binding.bottomNavigation.visibility = visibility
+    }
 }
