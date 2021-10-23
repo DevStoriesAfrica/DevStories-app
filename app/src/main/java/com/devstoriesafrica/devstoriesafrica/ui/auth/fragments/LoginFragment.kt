@@ -26,6 +26,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentLoginBinding::inflate
 
+    override var bottomNavigationVisibility = View.GONE
+
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.hide()
