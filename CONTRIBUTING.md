@@ -29,7 +29,3 @@ Never made an open source contribution before? Wondering how contributions work 
 
 If you need help, you can ask questions on our [Slack Workspace](https://join.slack.com/t/devstoriesafrica/shared_invite/zt-wjw8sf9d-99zffpJhwGGu7dmHpmpDUA) .
 
-# Code of Conduct
-
- - Our Code of Conduct means that you are responsible for treating everyone on the project with respect and courtesy.
- - Do not add any malicious files to the project!
