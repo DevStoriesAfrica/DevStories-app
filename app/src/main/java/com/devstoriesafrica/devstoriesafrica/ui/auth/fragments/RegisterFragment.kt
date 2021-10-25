@@ -117,7 +117,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                         binding.progressBar.visibility = View.VISIBLE
                     }
                     Status.ERROR -> {
-                        Toast.makeText(context,"Error while creating account",Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Error while creating account", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
