@@ -2,7 +2,9 @@ package com.devstoriesafrica.devstoriesafrica.repositories.auth
 
 import com.devstoriesafrica.devstoriesafrica.data.remote.DevStoriesApi
 import com.devstoriesafrica.devstoriesafrica.models.requests.Login
+import com.devstoriesafrica.devstoriesafrica.models.requests.ResetPassword
 import com.devstoriesafrica.devstoriesafrica.models.requests.SignUp
+import com.devstoriesafrica.devstoriesafrica.models.requests.VerifyOtp
 import com.devstoriesafrica.devstoriesafrica.models.responses.LoginResponse
 import com.devstoriesafrica.devstoriesafrica.utils.Resource
 import retrofit2.HttpException
@@ -27,7 +29,7 @@ class AuthRepositoryImpl @Inject constructor(
             Resource.success(response)
         } catch (e: Exception) {
             return if (e is HttpException) {
-                Resource.error("${e.message()}", null)
+                Resource.error(e.message(), null)
             } else {
                 Resource.error("$e", null)
             }
@@ -50,7 +52,40 @@ class AuthRepositoryImpl @Inject constructor(
             Resource.success(response)
         } catch (e: Exception) {
             return if (e is HttpException) {
-                Resource.error("${e.message()}", null)
+                Resource.error(e.message(), null)
+            } else {
+                Resource.error("$e", null)
+            }
+        }
+    }
+
+    override suspend fun resetPassword(email: String): Resource<LoginResponse> {
+        return try {
+            val response = api.resetPassword(
+                ResetPassword(email = email)
+            )
+            Resource.success(response)
+        } catch (e: Exception) {
+            return if (e is HttpException) {
+                Resource.error(e.message(), null)
+            } else {
+                Resource.error("$e", null)
+            }
+        }
+    }
+
+    override suspend fun verifyOtp(email: String, otp: String): Resource<LoginResponse> {
+        return try {
+            val response = api.verifyOtp(
+                VerifyOtp(
+                    email = email,
+                    otp = otp
+                )
+            )
+            Resource.success(response)
+        } catch (e: Exception) {
+            return if (e is HttpException) {
+                Resource.error(e.message(), null)
             } else {
                 Resource.error("$e", null)
             }
