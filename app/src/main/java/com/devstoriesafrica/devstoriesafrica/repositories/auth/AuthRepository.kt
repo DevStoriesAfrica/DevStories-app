@@ -5,5 +5,7 @@ import com.devstoriesafrica.devstoriesafrica.utils.Resource
 
 interface AuthRepository {
     suspend fun login(email: String, password: String): Resource<LoginResponse>
-    suspend fun signUp(userName: String,email: String ,password: String): Resource<LoginResponse>
+    suspend fun signUp(userName: String, email: String, password: String): Resource<LoginResponse>
+    suspend fun resetPassword(email: String): Resource<LoginResponse>
+    suspend fun verifyOtp(email: String, otp: String): Resource<LoginResponse>
 }
