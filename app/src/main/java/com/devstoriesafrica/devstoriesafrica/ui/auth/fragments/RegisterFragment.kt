@@ -84,6 +84,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                         email = email,
                         password = password
                     )
+                    findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToOtpFragment())
                 }
             }
 
