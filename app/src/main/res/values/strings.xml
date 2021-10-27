@@ -10,4 +10,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="existing_user">Already have an account? Login</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="tv_verify">Verify Email</string>
+    <string name="tv_backButton_accessibility">Back button</string>
 </resources>
