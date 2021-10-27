@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentOtpBinding
 import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
@@ -39,6 +40,9 @@ class OtpFragment : BaseFragment<FragmentOtpBinding>() {
                     Toast.makeText(context, "Less that expected password", Toast.LENGTH_SHORT).show()
                 }
 
+            }
+            backImage.setOnClickListener {
+                findNavController().navigate(OtpFragmentDirections.actionOtpFragmentToRegisterFragment())
             }
         }
     }

@@ -87,8 +87,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                     findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToOtpFragment())
                 }
             }
-
-
         }
 
     }
