@@ -1,14 +1,11 @@
 package com.devstoriesafrica.devstoriesafrica.ui.auth.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
@@ -37,6 +34,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun setupUi() {
         initMaterialTransitions()
         initSpannable()
+        initResetPassSpannable()
         initListeners()
     }
     private fun initMaterialTransitions() {
@@ -51,18 +49,41 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             )
         }
+
+        binding.forgotPasswordTxt.setOnClickListener {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment()
+            )
+        }
     }
 
     private fun initSpannable() {
         val spanString = SpannableString("Don’t have an account? SignUp")
+
+            val foregroundSpan = ForegroundColorSpan(
+                ContextCompat.getColor(requireContext(), R.color.yellow))
+        spanString.setSpan(foregroundSpan,
+                23,
+                29,
+                Spanned.SPAN_INCLUSIVE_EXCLUSIVE
+            )
+            binding.txtNewUser.text = spanString
+
+
+    }
+
+    private fun initResetPassSpannable(){
+        val spannableString = SpannableString("Forgot Password? Reset")
         val foregroundSpan = ForegroundColorSpan(
             ContextCompat.getColor(requireContext(), R.color.yellow))
-        spanString.setSpan(foregroundSpan,
-            23,
-            29,
+        spannableString.setSpan(foregroundSpan,
+            17,
+            22,
             Spanned.SPAN_INCLUSIVE_EXCLUSIVE
         )
-        binding.txtNewUser.text = spanString
+
+        binding.forgotPasswordTxt.text = spannableString
+
     }
 
     override fun onStop() {

@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/DevStories-app/app/src/main/res/layout/fragment_login.xml" value="0.10099637681159421" />
         <entry key="..\:/AndroidStudioProjects/DevStories-app/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DevStories-app/app/src/main/res/drawable/ic_back_arrow.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DevStories-app/app/src/main/res/layout/fragment_home.xml" value="0.2625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DevStories-app/app/src/main/res/layout/fragment_login.xml" value="0.4" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DevStories-app/app/src/main/res/layout/fragment_register.xml" value="0.2625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DevStories-app/app/src/main/res/layout/fragment_reset_password.xml" value="0.264" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.209375" />
         <entry key="app/src/main/res/drawable/splash_image.xml" value="0.209375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19322916666666667" />
@@ -22,5 +27,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

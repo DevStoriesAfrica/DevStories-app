@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="reset_pass_btn_marginTop">16dp</dimen>
+    <dimen name="reset_pass_btn_marginBottom">56dp</dimen>
+    <dimen name="resetEmail_TL_matginStart">16dp</dimen>
+</resources>

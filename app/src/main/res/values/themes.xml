@@ -34,4 +34,10 @@
         <item name="cornerRadius">@dimen/_10sdp</item>
         <item name="backgroundColor">@color/yellow</item>
     </style>
+
+    <style name="Theme.DevStoriesAfrica.CustomBackButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

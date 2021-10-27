@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.fragments.LoginFragment">
+
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="@string/login"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
         android:textStyle="bold"
@@ -74,22 +74,12 @@
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40ssp"
+        android:layout_marginTop="32dp"
         android:animateLayoutChanges="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordLayout"
-        tools:layout_editor_absoluteY="26dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
-            style="@style/Theme.DevStoriesAfrica.CustomButtonStyle"
-            android:layout_width="match_parent"
-            app:backgroundTint="@color/yellow"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:textColor="@color/white" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPasswordTxt">
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -99,6 +89,15 @@
             android:indeterminate="true"
             android:indeterminateTint="@color/yellow"
             android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/Theme.DevStoriesAfrica.CustomButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/yellow" />
     </FrameLayout>
 
     <TextView
@@ -112,4 +111,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/forgotPasswordTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="@+id/passwordLayout"
+        app:layout_constraintStart_toStartOf="@+id/passwordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
