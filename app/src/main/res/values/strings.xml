@@ -12,4 +12,7 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="tv_verify">Verify Email</string>
     <string name="tv_backButton_accessibility">Back button</string>
+    <string name="tv_code_sent">We have sent the code verification\n to your email</string>
+    <string name="tv_code">Verification Code</string>
+    <string name="verify">Verify</string>
 </resources>

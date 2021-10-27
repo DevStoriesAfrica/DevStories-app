@@ -1,13 +1,11 @@
 package com.devstoriesafrica.devstoriesafrica.ui.auth.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentOtpBinding
 import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
 import com.google.android.material.transition.MaterialFadeThrough
@@ -28,6 +26,21 @@ class OtpFragment : BaseFragment<FragmentOtpBinding>() {
 
     private fun setUI() {
         initMaterialTransitions()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.apply {
+            btnVerifyEmail.setOnClickListener {
+                val otp = otpView.otp
+                if (otp.length >= 4) {
+                    Toast.makeText(context, "The OTP is $otp", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Less that expected password", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }
     }
 
     private fun initMaterialTransitions() {

@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro"
         android:text="@string/tv_verify"
+        android:textColor="#000000"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -32,7 +33,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/otpImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -41,4 +42,65 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvVerify" />
+
+    <TextView
+        android:id="@+id/tvVerifyCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="@string/tv_code"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpImage" />
+
+    <TextView
+        android:id="@+id/tvVerifyDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="@string/tv_code_sent"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVerifyCode" />
+
+    <in.aabhasjindal.otptextview.OtpTextView
+        android:id="@+id/otp_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textColor="@color/black"
+        app:bar_enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVerifyDetails"
+        app:length="4"
+        app:otp_text_size="24dp"
+        app:otp_box_background_active="@color/otp_background_active"
+        app:otp_box_background="@color/otp_background"
+        app:box_margin="8dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVerifyEmail"
+        style="@style/Theme.DevStoriesAfrica.CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="@string/verify"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/otp_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/otp_view"
+        app:layout_constraintTop_toBottomOf="@+id/otp_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
