@@ -35,6 +35,9 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_registerFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -46,4 +49,13 @@
         android:name="com.devstoriesafrica.devstoriesafrica.ui.home.fragments.LiveFragment"
         android:label="fragment_live"
         tools:layout="@layout/fragment_live" />
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.fragments.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otpFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
 </navigation>
