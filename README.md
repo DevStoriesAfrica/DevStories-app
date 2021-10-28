@@ -1,11 +1,8 @@
-<!-- ![](https://img.shields.io/badge/Microverse-blueviolet) -->
-
 # DevStories Africa App
 
 This app is for sharing updates on upcoming events, previous events and call for story tellers i.e developer, data scientist, networking guru, IoT specialist, cybersecurity specialist who would like to share their stories in our events held every two weeks.
 
 [DevStories Africa](https://devstoriesafrica.com/) is a community that believe that every developer’s journey is unique and that sharing your journey can inspire other developers for the better.
-<!-- ![screenshot](./app/assets/images/signup-twitter.png) -->
 
 ## Built With
 - [Kotlin](https://developer.android.com/kotlin) - Kotlin is a programming language that can run on JVM. Google has announced Kotlin as one of its officially supported programming languages in Android Studio; and the Android community is migrating at a pace from Java to Kotlin.
@@ -22,13 +19,6 @@ This app is for sharing updates on upcoming events, previous events and call for
 - [GitHub Actions](https://github.com/features/actions) - GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.
 - [Glide](https://github.com/bumptech/glide)- An image loading and caching library for Android focused on smooth scrolling.
 
-<!-- ## Live Project -->
-
-<!-- - [Live Demo Link](https://fierce-spire-26749.herokuapp.com/) -->
-
-<!-- - [Video](https://www.loom.com/share/459aebb647ef46daab87de530ccd8970)
-
-![screenshot](./app/assets/images/twitter-prof.png) -->
 
 ## Getting Started
 
@@ -86,7 +76,7 @@ Finally, if you've read this far, don't forget to give this repo a ⭐️. They'
 
 ## Acknowledgments
 
-- We hereby acknowledge [DevStories Team](https://devstoriesafrica.com/) for the project idea and [Breens](https://twitter.com/BreensR) who designed the [DevStories App](https://www.figma.com/file/pTMEu96evnfbJuU1kq6x7S/DevStories?node-id=0%3A1)
+- We hereby acknowledge [DevStories Team](https://devstoriesafrica.com/) for the project idea, [Breens](https://twitter.com/BreensR) who designed the [DevStories App](https://www.figma.com/file/pTMEu96evnfbJuU1kq6x7S/DevStories?node-id=0%3A1) and all [contributors](https://github.com/DevStoriesAfrica/DevStories-app/graphs/contributors) for taking their time to contribute.
 
 ## 📝 License
 
