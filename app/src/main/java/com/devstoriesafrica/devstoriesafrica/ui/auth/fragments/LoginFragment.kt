@@ -42,6 +42,14 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         initResetPassSpannable()
         initListeners()
         observeViewModel()
+        initSocialMediaViews()
+    }
+
+    private fun initSocialMediaViews(){
+        binding.includeSocial.fbRegister.visibility = View.GONE
+        binding.includeSocial.fbLogin.visibility = View.VISIBLE
+        binding.includeSocial.googleRegister.visibility = View.GONE
+        binding.includeSocial.googleLogin.visibility = View.VISIBLE
     }
 
     private fun initMaterialTransitions() {

@@ -41,6 +41,14 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         initSpannable()
         initListeners()
         observeViewModel()
+        initSocialMediaViews()
+    }
+
+    private fun initSocialMediaViews(){
+            binding.includeSocial.fbRegister.visibility = View.VISIBLE
+            binding.includeSocial.fbLogin.visibility = View.GONE
+            binding.includeSocial.googleRegister.visibility = View.VISIBLE
+            binding.includeSocial.googleLogin.visibility = View.GONE
     }
 
     private fun initMaterialTransitions() {

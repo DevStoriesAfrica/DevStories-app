@@ -27,4 +27,8 @@
     <string name="confirmation_message_text">We have sent a password recover instructions to your email</string>
     <string name="open_email_app_button_text">Open Email App</string>
     <string name="text_for_skip_button">Skip I\'ll confirm later</string>
+
+    // FACEBOOK CREDENTIAL
+    <string name="facebook_app_id">[APP_ID]</string>
+    <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
 </resources>

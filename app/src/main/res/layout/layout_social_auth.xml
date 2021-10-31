@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_login"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:scaleType="center"
+        android:textStyle="bold"
+        android:gravity="center"
+        facebook:com_facebook_login_text="Sign in with Facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_register"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingTop="12dp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        facebook:com_facebook_login_text="Sign up with Facebook"
+        android:scaleType="center"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fb_login"  />
+
+
+    <com.shobhitpuri.custombuttons.GoogleSignInButton
+        android:id="@+id/google_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Sign in with Google"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        app:isDarkTheme="false"
+        android:background="#F2F2F2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fb_register"/>
+
+    <com.shobhitpuri.custombuttons.GoogleSignInButton
+        android:id="@+id/google_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Sign up with Google"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:isDarkTheme="false"
+        android:background="#F2F2F2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/google_login"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
