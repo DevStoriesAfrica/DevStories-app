@@ -27,5 +27,5 @@ Never made an open source contribution before? Wondering how contributions work 
 
 # Where can I go for help?
 
-If you need help, you can ask questions on our [Slack Workspace](https://join.slack.com/t/devstoriesafrica/shared_invite/zt-wjw8sf9d-99zffpJhwGGu7dmHpmpDUA) .
+If you need help, you can ask questions on our [Slack Workspace](https://join.slack.com/t/devstoriesafrica/shared_invite/zt-y1qpw79j-Gi8RDR5OPVwLsV2Pyoo~PA) .
 
