@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/viewPagerFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -46,4 +46,36 @@
         android:name="com.devstoriesafrica.devstoriesafrica.ui.home.fragments.LiveFragment"
         android:label="fragment_live"
         tools:layout="@layout/fragment_live" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topEventsFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.TopEventsFragment"
+        android:label="fragment_top_events"
+        tools:layout="@layout/fragment_top_events" >
+        <action
+            android:id="@+id/action_topEventsFragment_to_pastEventsFragment"
+            app:destination="@id/pastEventsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pastEventsFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.PastEventsFragment"
+        android:label="fragment_past_events"
+        tools:layout="@layout/fragment_past_events" >
+        <action
+            android:id="@+id/action_pastEventsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>

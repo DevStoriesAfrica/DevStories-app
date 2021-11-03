@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.onboarding.NotificationsFragment">
+
+    <ImageView
+        android:id="@+id/notifications_image"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/happy_announcement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/booking_notifications_text"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="37dp"
+        android:text="Get Booking Notifications"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notifications_image" />
+
+    <TextView
+        android:id="@+id/booking_notifications_exp"
+        android:layout_width="336dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginTop="39dp"
+        android:text="You will get regular updates to upcoming events. Enjoy easy booking"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/booking_notifications_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/get_started_button"
+        style="@style/Theme.DevStoriesAfrica.CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="44dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="21dp"
+        android:text="GET STARTED"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/booking_notifications_exp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
