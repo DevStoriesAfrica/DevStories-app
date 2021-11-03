@@ -1,10 +1,11 @@
 package com.devstoriesafrica.devstoriesafrica.ui.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.devstoriesafrica.devstoriesafrica.R
@@ -32,12 +33,24 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        //val navHost = supportFragmentManager
-        val navController = findNavController(R.id.nav_host)
+        // val navHost = supportFragmentManager
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+        navController.graph = navGraph
+
+        // change the start destination dynamically
+        if (onBoardingFinished()) {
+            navGraph.startDestination = R.id.loginFragment
+        } else {
+            navGraph.startDestination = R.id.viewPagerFragment
+        }
 
         binding.bottomNavigation.setupWithNavController(navController)
 
-        //Certain fragments will have bottom nav
+        // Certain fragments will have bottom nav
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> showBottomNav()
@@ -54,5 +67,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideBottomNav() {
         binding.bottomNavigation.visibility = View.GONE
+    }
+
+    // TODO: switch to datastore and create a module
+    private fun onBoardingFinished(): Boolean {
+        val sharedPref = getSharedPreferences(
+            "com.devstoriesafrica.devstoriesafrica",
+            Context.MODE_PRIVATE
+        )
+        return sharedPref.getBoolean("Finished", false)
     }
 }

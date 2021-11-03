@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.onboarding.TopEventsFragment">
+
+    <ImageView
+        android:id="@+id/top_events_image"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/top_events"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/explore_events_text"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Explore Top Events"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_events_image" />
+
+    <TextView
+        android:layout_width="334dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginTop="39dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Listen to inspiring stories from developers around Africa"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/explore_events_text" />
+
+    <TextView
+        android:id="@+id/top_events_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="35dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Skip"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/first_view"
+        android:layout_width="48dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginBottom="42dp"
+        android:background="@drawable/onboarding_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/top_events_skip" />
+
+    <View
+        android:layout_width="30dp"
+        android:layout_height="7dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="42dp"
+        android:background="@drawable/onboarding_view_faded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/first_view" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/top_events_button"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="NEXT"
+        app:backgroundTint="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
