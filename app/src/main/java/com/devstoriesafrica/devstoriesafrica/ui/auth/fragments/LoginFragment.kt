@@ -39,6 +39,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun setupUi() {
         initMaterialTransitions()
         initSpannable()
+        initResetPassSpannable()
         initListeners()
         observeViewModel()
     }
@@ -53,6 +54,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         binding.txtNewUser.setOnClickListener {
             findNavController().navigate(
                 LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            )
+        }
+
+
+        binding.forgotPasswordTxt.setOnClickListener {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment()
             )
         }
 
@@ -90,6 +98,20 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             Spanned.SPAN_INCLUSIVE_EXCLUSIVE
         )
         binding.txtNewUser.text = spanString
+    }
+
+    private fun initResetPassSpannable() {
+        val spannableString = SpannableString("Forgot Password? Reset")
+        val foregroundColorSpan = ForegroundColorSpan(
+            ContextCompat.getColor(requireContext() , R.color.yellow)
+        )
+        spannableString.setSpan(
+            foregroundColorSpan,
+            17,
+            22,
+            Spanned.SPAN_INCLUSIVE_EXCLUSIVE
+        )
+        binding.forgotPasswordTxt.text = spannableString
     }
 
     //observe the data in the viewmodel

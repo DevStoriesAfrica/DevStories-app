@@ -10,4 +10,21 @@
     <string name="sign_up">Sign Up</string>
     <string name="existing_user">Already have an account? Login</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="tv_verify">Verify Email</string>
+    <string name="tv_backButton_accessibility">Back button</string>
+    <string name="tv_code_sent">We have sent the code verification\n to your email</string>
+    <string name="tv_code">Verification Code</string>
+    <string name="verify">Verify</string>
+
+    <string name="back_button_text">Back</string>
+    <string name="reset_password_heading">Reset Password</string>
+    <string name="info_string_reset_password">Enter the email associated with your account and we’ll send an email with instructions to reset your password</string>
+    <string name="email_address_heading_reset_password">Email Address</string>
+    <string name="send_instructions_reset_password">Send Instructions</string>
+    <string name="email_field_error_message">email field should not be empty</string>
+    <string name="envelope_image_content_desc">envelope image</string>
+    <string name="check_your_email_text">Check Your Email</string>
+    <string name="confirmation_message_text">We have sent a password recover instructions to your email</string>
+    <string name="open_email_app_button_text">Open Email App</string>
+    <string name="text_for_skip_button">Skip I\'ll confirm later</string>
 </resources>

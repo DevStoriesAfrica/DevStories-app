@@ -7,6 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="otp_background">#E9E6E6</color>
+    <color name="otp_background_active">#E9BE54</color>
 
     <color name="light_blue">#b8f3f7</color>
     <color name="blue">#4800e0</color>

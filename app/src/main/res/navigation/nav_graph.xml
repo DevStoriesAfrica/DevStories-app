@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/viewPagerFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -25,6 +25,10 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -35,6 +39,9 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_registerFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -47,35 +54,38 @@
         android:label="fragment_live"
         tools:layout="@layout/fragment_live" />
     <fragment
-        android:id="@+id/viewPagerFragment"
-        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.ViewPagerFragment"
-        android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" >
+        android:id="@+id/otpFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.fragments.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
         <action
-            android:id="@+id/action_viewPagerFragment_to_loginFragment"
+            android:id="@+id/action_otpFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.fragments.ResetPasswordFragment"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/topEventsFragment"
-        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.TopEventsFragment"
-        android:label="fragment_top_events"
-        tools:layout="@layout/fragment_top_events" >
         <action
-            android:id="@+id/action_topEventsFragment_to_pastEventsFragment"
-            app:destination="@id/pastEventsFragment" />
+            android:id="@+id/action_resetPasswordFragment_to_emailConfirmationFragment"
+            app:destination="@id/emailConfirmationFragment"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
-        android:id="@+id/pastEventsFragment"
-        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.PastEventsFragment"
-        android:label="fragment_past_events"
-        tools:layout="@layout/fragment_past_events" >
+        android:id="@+id/emailConfirmationFragment"
+        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.fragments.EmailConfirmationFragment"
+        android:label="fragment_check_email"
+        tools:layout="@layout/fragment_check_email" >
         <action
-            android:id="@+id/action_pastEventsFragment_to_notificationsFragment"
-            app:destination="@id/notificationsFragment" />
+            android:id="@+id/action_emailConfirmationFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_emailConfirmationFragment_to_resetPasswordFragment2"
+            app:destination="@id/resetPasswordFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/notificationsFragment"
-        android:name="com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding.NotificationsFragment"
-        android:label="fragment_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>

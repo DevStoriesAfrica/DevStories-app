@@ -82,9 +82,11 @@ dependencies {
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
+
     //Scalable size unit
     implementation "com.intuit.sdp:sdp-android:1.0.6"
     implementation "com.intuit.ssp:ssp-android:1.0.6"
 
-
+    //OtpView
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
 }
