@@ -87,7 +87,8 @@
         app:otp_text_size="24dp"
         app:otp_box_background_active="@color/otp_background_active"
         app:otp_box_background="@color/otp_background"
-        app:box_margin="8dp"/>
+        app:box_margin="8dp"
+        tools:ignore="MissingClass" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnVerifyEmail"

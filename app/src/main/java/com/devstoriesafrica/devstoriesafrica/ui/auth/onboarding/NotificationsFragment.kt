@@ -1,5 +1,6 @@
 package com.devstoriesafrica.devstoriesafrica.ui.auth.onboarding
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,18 @@ class NotificationsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.getStartedButton.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_loginFragment)
+            onBoardingFinished()
         }
+    }
+
+    private fun onBoardingFinished() {
+        // TODO: switch to datastore and create a module
+        val sharedPref = requireActivity().getSharedPreferences(
+            "com.devstoriesafrica.devstoriesafrica",
+            Context.MODE_PRIVATE
+        )
+        val editor = sharedPref.edit()
+        editor.putBoolean("Finished", true)
+        editor.apply()
     }
 }

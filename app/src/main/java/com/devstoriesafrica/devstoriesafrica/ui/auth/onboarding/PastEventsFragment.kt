@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentPastEventsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,8 +26,13 @@ class PastEventsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.view_pager_onboarding)
         binding.pastEventsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_pastEventsFragment_to_notificationsFragment)
+            viewPager?.currentItem = 2
+        }
+
+        binding.pastEventsSkip.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 }
