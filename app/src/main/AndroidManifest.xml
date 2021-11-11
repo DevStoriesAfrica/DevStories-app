@@ -14,6 +14,8 @@
         android:theme="@style/splashScreenTheme">
         <activity
             android:name=".ui.activities.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
