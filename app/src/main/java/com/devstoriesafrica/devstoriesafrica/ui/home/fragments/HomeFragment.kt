@@ -32,7 +32,8 @@ class HomeFragment : Fragment() {
     private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -48,12 +49,14 @@ class HomeFragment : Fragment() {
         observeViewModel()
 
         initViews()
-
     }
 
-
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun initViews(){
+    private fun initViews() {
+
+        remoteEventsAdapter.setOnItemClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToEventDetailsFragment())
+        }
 
         binding.profileImageLayout.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
@@ -61,27 +64,27 @@ class HomeFragment : Fragment() {
         progressBar = binding.homeProgressBar
 
         upcomingRecycler = binding.upcomingEventsRecycler
-        upcomingRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-
+        upcomingRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         pastRecycler = binding.pastEventsRecycler
-        pastRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-
+        pastRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         progressBar.visibility = View.VISIBLE
 
-        val todaysDate= LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL))
+        val todaysDate = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL))
 
         binding.dateTextView.text = todaysDate.toString()
     }
 
-    private fun observeViewModel(){
-        viewModel.getEventsStatus.observe(viewLifecycleOwner,{ result ->
+    private fun observeViewModel() {
+        viewModel.getEventsStatus.observe(viewLifecycleOwner, { result ->
             result?.let {
-                when(result.status){
+                when (result.status) {
                     Status.SUCCESS -> {
                         progressBar.visibility = View.GONE
-                        //Toast.makeText(context,"${result.data}",Toast.LENGTH_LONG).show()
+                        // Toast.makeText(context,"${result.data}",Toast.LENGTH_LONG).show()
                         result.data?.let {
                             remoteEventsAdapter.differ.submitList(it.events)
                             upcomingRecycler.adapter = remoteEventsAdapter

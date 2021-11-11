@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.ActivityMainBinding
 import com.devstoriesafrica.devstoriesafrica.ui.auth.viewmodel.AuthViewModel
@@ -36,10 +35,10 @@ class MainActivity : AppCompatActivity() {
         // val navHost = supportFragmentManager
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        val navController = navHostFragment.navController
+        // val navController = navHostFragment.navController
 
-        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
-        navController.graph = navGraph
+        val navGraph = navHostFragment.navController.navInflater.inflate(R.navigation.nav_graph)
+        //  navController.graph = navGraph
 
         // change the start destination dynamically
         if (onBoardingFinished()) {
@@ -48,17 +47,18 @@ class MainActivity : AppCompatActivity() {
             navGraph.startDestination = R.id.viewPagerFragment
         }
 
-        binding.bottomNavigation.setupWithNavController(navController)
+        navHostFragment.navController.graph = navGraph
 
-        // Certain fragments will have bottom nav
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.homeFragment -> showBottomNav()
-                R.id.liveFragment -> showBottomNav()
-                R.id.aboutFragment -> showBottomNav()
-                else -> hideBottomNav()
+        // binding.bottomNavigation.setupWithNavController(navController)
+
+            navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+                when (destination.id) {
+                    R.id.homeFragment -> showBottomNav()
+                    R.id.liveFragment -> showBottomNav()
+                    R.id.aboutFragment -> showBottomNav()
+                    else -> hideBottomNav()
+                }
             }
-        }
     }
 
     private fun showBottomNav() {
