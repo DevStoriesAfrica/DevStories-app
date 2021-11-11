@@ -40,9 +40,17 @@ class EventBriteAdapter : RecyclerView.Adapter<EventBriteAdapter.RemoteViewHolde
 
             Glide.with(context).load(event.logo?.original?.url).into(eventPosterView)
 
+            holder.itemView.setOnClickListener {
+                onItemClickListener?.let {
+                    it(event)
+                }
+            }
         }
 
+    private var onItemClickListener: ((EventX) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (EventX) -> Unit){
+        this.onItemClickListener = listener
+    }
     override fun getItemCount(): Int = differ.currentList.size
-
-
 }
