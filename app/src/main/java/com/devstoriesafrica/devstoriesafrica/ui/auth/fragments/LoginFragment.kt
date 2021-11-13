@@ -13,22 +13,28 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.devstoriesafrica.devstoriesafrica.R
+import com.devstoriesafrica.devstoriesafrica.data.datastore.DataStoreManager
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentLoginBinding
+import com.devstoriesafrica.devstoriesafrica.models.responses.LoginResponse
 import com.devstoriesafrica.devstoriesafrica.ui.auth.viewmodel.AuthViewModel
 import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
 import com.devstoriesafrica.devstoriesafrica.utils.Status
 import com.google.android.material.transition.MaterialFadeThrough
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+class LoginFragment (): BaseFragment<FragmentLoginBinding>() {
     private val viewModel: AuthViewModel by activityViewModels()
+    private var dataStoreManager: DataStoreManager? = null
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentLoginBinding::inflate
 
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.hide()
+        dataStoreManager = DataStoreManager(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -120,6 +126,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             response?.let {
                 when (response.status) {
                     Status.SUCCESS -> {
+                        /**
+                         * Save the login status at datastore
+                         */
+                        GlobalScope.launch {
+                            dataStoreManager?.saveUserRecords(LoginResponse(true))
+                        }
                         findNavController().navigate(
                             LoginFragmentDirections.actionLoginFragmentToHomeFragment()
                         )
