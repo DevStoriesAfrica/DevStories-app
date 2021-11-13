@@ -91,4 +91,8 @@ dependencies {
     //OtpView
     implementation 'com.github.aabhasr1:OtpView:v1.1.2'
 
+    // Jetpack Datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+
 }
