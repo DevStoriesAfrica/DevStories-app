@@ -2,6 +2,7 @@ package com.devstoriesafrica.devstoriesafrica.di
 
 import android.content.Context
 import com.devstoriesafrica.devstoriesafrica.data.ApiInterceptor
+import com.devstoriesafrica.devstoriesafrica.data.datastore.DataStoreManager
 import com.devstoriesafrica.devstoriesafrica.data.remote.DevStoriesApi
 import com.devstoriesafrica.devstoriesafrica.data.remote.EventBriteApi
 import com.devstoriesafrica.devstoriesafrica.repositories.auth.AuthRepository
@@ -66,4 +67,9 @@ object AppModule {
         @ApplicationContext context: Context
     ) = context
 
+    @Singleton
+    @Provides
+    fun provideDatastore(@ApplicationContext context: Context): DataStoreManager {
+        return DataStoreManager(context)
+    }
 }

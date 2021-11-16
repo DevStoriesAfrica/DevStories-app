@@ -1,6 +1,5 @@
 package com.devstoriesafrica.devstoriesafrica.ui.auth.fragments
 
-
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -31,12 +30,13 @@ class EmailConfirmationFragment : BaseFragment<FragmentCheckEmailBinding>() {
         intializeTransitions()
         setUpListeners()
         initialiseSpannedText()
-
     }
 
     private fun initialiseSpannedText() {
-        val spannableString = SpannableString("Did not receive email? " +
-                "Check your spam filter, Or try another email address")
+        val spannableString = SpannableString(
+            "Did not receive email? " +
+                "Check your spam filter, Or try another email address"
+        )
 
         val foregroundSpan = ForegroundColorSpan(
             ContextCompat.getColor(requireContext(), R.color.yellow)
@@ -55,22 +55,21 @@ class EmailConfirmationFragment : BaseFragment<FragmentCheckEmailBinding>() {
         binding.apply {
 
             btnOpenEmail.setOnClickListener {
-                //implicit intent to open email app
+                // implicit intent to open email app
             }
             btnSkipEmailCheck.setOnClickListener {
-                //navigate back to login screen
+                // navigate back to login screen
                 findNavController().navigate(
                     EmailConfirmationFragmentDirections.actionEmailConfirmationFragmentToLoginFragment()
                 )
             }
             bottomMessageTxt.setOnClickListener {
-            //navigate back to reset password fragment
+                // navigate back to reset password fragment
                 findNavController().navigate(
-                    EmailConfirmationFragmentDirections.actionEmailConfirmationFragmentToResetPasswordFragment2())
+                    EmailConfirmationFragmentDirections.actionEmailConfirmationFragmentToResetPasswordFragment2()
+                )
             }
-
         }
-
     }
 
     private fun intializeTransitions() {

@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>() {
 
-    private val authViewModel : AuthViewModel by activityViewModels()
+    private val authViewModel: AuthViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,26 +34,24 @@ class ResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>() {
 
     private fun observeLiveData() {
 
-        authViewModel.resetPasswordStatus.observe(viewLifecycleOwner , { response ->
+        authViewModel.resetPasswordStatus.observe(viewLifecycleOwner, { response ->
 
             response?.let {
-                when(response.status){
+                when (response.status) {
                     Status.SUCCESS -> {
-                        //email is sent , trigger navigation back to login fragment or to email app
+                        // email is sent , trigger navigation back to login fragment or to email app
                     }
 
                     Status.LOADING -> {
-                        //hide send reset email button show progress bar
+                        // hide send reset email button show progress bar
                     }
 
                     Status.ERROR -> {
-                        //show error message(toast ,SnackBar or TextField etc)
+                        // show error message(toast ,SnackBar or TextField etc)
                     }
                 }
             }
-
         })
-
     }
 
     private fun setUpListeners() {
@@ -65,19 +63,18 @@ class ResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>() {
             }
 
             btnSendPassReset.setOnClickListener {
-                //handle password reset email sending here
+                // handle password reset email sending here
                 val email = binding.resetEmailEt.text.toString()
-                if(email.isEmpty()){
+                if (email.isEmpty()) {
                     binding.resetEmailLayout.error = getString(R.string.email_field_error_message)
-                }else{
+                } else {
                     authViewModel.resetPassword(email)
 
-                    //this is just temporary. When the apis are setup , navigation from this fragment
-                    //to confirmation fragment will be happen when the email has been sent successfully
+                    // this is just temporary. When the apis are setup , navigation from this fragment
+                    // to confirmation fragment will be happen when the email has been sent successfully
                     findNavController().navigate(
                         ResetPasswordFragmentDirections.actionResetPasswordFragmentToEmailConfirmationFragment()
                     )
-
                 }
             }
         }
@@ -101,6 +98,4 @@ class ResetPasswordFragment : BaseFragment<FragmentResetPasswordBinding>() {
         super.onStop()
         (activity as AppCompatActivity).supportActionBar?.hide()
     }
-
 }
-

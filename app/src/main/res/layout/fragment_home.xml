@@ -1,191 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.fragments.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ProgressBar
-            android:id="@+id/home_progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="200dp"
-            android:visibility="gone"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/date_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="27dp"
-            android:fontFamily="@font/nunito_regular"
-            android:text="Friday, January 1"
-            android:textFontWeight="400"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/events_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="49dp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:fontFamily="@font/nunito_regular"
-            android:text="Events"
-            android:textColor="@color/black"
-            android:textFontWeight="700"
-            android:textSize="36sp"
-            app:layout_constraintStart_toStartOf="@id/date_text_view"
-            app:layout_constraintTop_toBottomOf="@id/date_text_view" />
-
-        <FrameLayout
-            android:id="@+id/profile_image_layout"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="35dp"
-            android:background="@drawable/profile_frame"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image_view"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo" />
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/upcoming_events_text"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/nunito_regular"
-            android:text="Upcoming events"
-            android:textColor="@color/black"
-            android:textFontWeight="600"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/events_text_view" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/upcoming_events_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/upcoming_events_text"
-            app:layout_constraintTop_toTopOf="@id/upcoming_events_text">
+            <ProgressBar
+                android:id="@+id/home_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/date_text_view"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
+                android:layout_height="19dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="27dp"
                 android:fontFamily="@font/nunito_regular"
-                android:text="See All"
-                android:textColor="@color/yellow"
+                android:text="Friday, January 1"
                 android:textFontWeight="400"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_forward"
-                app:tint="@color/yellow" />
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/upcoming_events_recycler"
-            android:layout_width="wrap_content"
-            android:layout_height="145dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="18dp"
-            android:visibility="gone"
-            android:layout_marginEnd="21dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upcoming_events_text"
-            tools:itemCount="1"
-            tools:listitem="@layout/event_item" />
-
-        <TextView
-            android:id="@+id/no_upcoming_events"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No Upcoming Events!"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upcoming_events_text"
-            app:layout_constraintBottom_toTopOf="@id/past_events_text"/>
-
-        <TextView
-            android:id="@+id/past_events_text"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="180dp"
-            android:fontFamily="@font/nunito_regular"
-            android:text="Past events"
-            android:textColor="@color/black"
-            android:textFontWeight="600"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upcoming_events_text" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="117dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/past_events_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/past_events_text"
-            app:layout_constraintTop_toTopOf="@id/past_events_text">
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/events_text_view"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
+                android:layout_height="49dp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:fontFamily="@font/nunito_regular"
-                android:text="See All"
-                android:textColor="@color/yellow"
-                android:textFontWeight="400"
-                android:textSize="18sp" />
+                android:text="Events"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="36sp"
+                app:layout_constraintStart_toStartOf="@id/date_text_view"
+                app:layout_constraintTop_toBottomOf="@id/date_text_view" />
 
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_arrow_forward"
-                app:tint="@color/yellow" />
-        </LinearLayout>
+            <FrameLayout
+                android:id="@+id/profile_image_layout"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="37dp"
+                android:layout_marginEnd="35dp"
+                android:background="@drawable/profile_frame"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/past_events_recycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="21dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/past_events_text"
-            tools:itemCount="1"
-            tools:listitem="@layout/event_item" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image_view"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/upcoming_events_text"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Upcoming events"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/events_text_view" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/upcoming_events_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/upcoming_events_text"
+                app:layout_constraintTop_toTopOf="@id/upcoming_events_text">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="See All"
+                    android:textColor="@color/yellow"
+                    android:textFontWeight="400"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/yellow" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upcoming_events_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="145dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="21dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcoming_events_text"
+                tools:itemCount="1"
+                tools:listitem="@layout/event_item" />
+
+            <TextView
+                android:id="@+id/no_upcoming_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Upcoming Events!"
+                app:layout_constraintBottom_toTopOf="@id/past_events_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcoming_events_text" />
+
+            <TextView
+                android:id="@+id/past_events_text"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="180dp"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Past events"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upcoming_events_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="117dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/past_events_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/past_events_text"
+                app:layout_constraintTop_toTopOf="@id/past_events_text">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="See All"
+                    android:textColor="@color/yellow"
+                    android:textFontWeight="400"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/yellow" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/past_events_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/past_events_text"
+                tools:itemCount="1"
+                tools:listitem="@layout/event_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

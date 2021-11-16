@@ -1,9 +1,7 @@
 package com.devstoriesafrica.devstoriesafrica.ui.auth.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.devstoriesafrica.devstoriesafrica.data.datastore.DataStoreManager
 import com.devstoriesafrica.devstoriesafrica.models.responses.LoginResponse
 import com.devstoriesafrica.devstoriesafrica.repositories.auth.AuthRepository
 import com.devstoriesafrica.devstoriesafrica.utils.Resource
@@ -13,10 +11,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val repository: AuthRepository
+    private val repository: AuthRepository,
+    private val preferences: DataStoreManager
 ) : ViewModel() {
     // Login Response is a dummy class and will be changed to respective responses
-    //TODO: Change response classes
+    // TODO: Change response classes
     private val _loginStatus = MutableLiveData<Resource<LoginResponse>>()
     val loginStatus: LiveData<Resource<LoginResponse>> = _loginStatus
 
@@ -81,4 +80,9 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun onBoardingFinished() {
+        viewModelScope.launch {
+            preferences.saveOnboardingFinished(true)
+        }
+    }
 }

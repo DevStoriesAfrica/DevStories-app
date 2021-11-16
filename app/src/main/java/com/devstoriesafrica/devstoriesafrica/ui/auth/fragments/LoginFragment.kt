@@ -23,14 +23,17 @@ import com.google.android.material.transition.MaterialFadeThrough
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class LoginFragment (): BaseFragment<FragmentLoginBinding>() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private val viewModel: AuthViewModel by activityViewModels()
     private var dataStoreManager: DataStoreManager? = null
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentLoginBinding::inflate
 
+    @Inject
+    lateinit var preferences: DataStoreManager
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.hide()
@@ -62,7 +65,6 @@ class LoginFragment (): BaseFragment<FragmentLoginBinding>() {
                 LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             )
         }
-
 
         binding.forgotPasswordTxt.setOnClickListener {
             findNavController().navigate(
@@ -109,7 +111,7 @@ class LoginFragment (): BaseFragment<FragmentLoginBinding>() {
     private fun initResetPassSpannable() {
         val spannableString = SpannableString("Forgot Password? Reset")
         val foregroundColorSpan = ForegroundColorSpan(
-            ContextCompat.getColor(requireContext() , R.color.yellow)
+            ContextCompat.getColor(requireContext(), R.color.yellow)
         )
         spannableString.setSpan(
             foregroundColorSpan,
@@ -120,7 +122,7 @@ class LoginFragment (): BaseFragment<FragmentLoginBinding>() {
         binding.forgotPasswordTxt.text = spannableString
     }
 
-    //observe the data in the viewmodel
+    // observe the data in the viewmodel
     private fun observeViewModel() {
         viewModel.loginStatus.observe(viewLifecycleOwner, { response ->
             response?.let {
@@ -137,7 +139,6 @@ class LoginFragment (): BaseFragment<FragmentLoginBinding>() {
                         )
                     }
                     Status.LOADING -> {
-
                     }
                     Status.ERROR -> {
                         Toast.makeText(context, "${response.message}", Toast.LENGTH_LONG).show()
