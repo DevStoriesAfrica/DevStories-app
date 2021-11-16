@@ -4,16 +4,17 @@ import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.devstoriesafrica.devstoriesafrica.R
 import com.devstoriesafrica.devstoriesafrica.databinding.FragmentHomeBinding
+import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
 import com.devstoriesafrica.devstoriesafrica.ui.home.adapter.EventBriteAdapter
 import com.devstoriesafrica.devstoriesafrica.ui.home.viewmodel.HomeViewModel
 import com.devstoriesafrica.devstoriesafrica.utils.Status
@@ -23,23 +24,15 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: HomeViewModel by activityViewModels()
     private val remoteEventsAdapter = EventBriteAdapter()
+    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var upcomingRecycler: RecyclerView
     private lateinit var pastRecycler: RecyclerView
     private lateinit var progressBar: ProgressBar
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root
-    }
+    override val bindingInflater: (LayoutInflater) -> ViewBinding
+        get() = FragmentHomeBinding::inflate
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,6 +69,14 @@ class HomeFragment : Fragment() {
         val todaysDate = LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL))
 
         binding.dateTextView.text = todaysDate.toString()
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.liveFragment,
+                R.id.aboutFragment
+            )
+        )
     }
 
     private fun observeViewModel() {

@@ -3,22 +3,15 @@ package com.devstoriesafrica.devstoriesafrica.ui.home.fragments
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.devstoriesafrica.devstoriesafrica.R
+import androidx.viewbinding.ViewBinding
+import com.devstoriesafrica.devstoriesafrica.databinding.FragmentEventDetailsBinding
+import com.devstoriesafrica.devstoriesafrica.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EventDetailsFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event_details, container, false)
-    }
+class EventDetailsFragment : BaseFragment<FragmentEventDetailsBinding>() {
+    override val bindingInflater: (LayoutInflater) -> ViewBinding
+        get() = FragmentEventDetailsBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
