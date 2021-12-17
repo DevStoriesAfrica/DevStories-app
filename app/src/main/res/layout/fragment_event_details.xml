@@ -1,14 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.fragments.EventDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/speaker_detail_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="207dp"
+        android:src="@drawable/wayne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/speaker_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Wayne Gakuo"
+        android:textColor="@color/black"
+        android:textFontWeight="900"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/speaker_detail_image" />
+
+    <View
+        android:id="@+id/date_view"
+        android:layout_width="78dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/date_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="33dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:text="22"
+        android:textColor="@color/white"
+        android:textFontWeight="900"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@id/date_view"
+        app:layout_constraintStart_toStartOf="@id/date_view"
+        app:layout_constraintTop_toTopOf="@id/date_view" />
+
+    <TextView
+        android:layout_width="37dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:text="Oct"
+        android:textColor="@color/white"
+        android:textFontWeight="900"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/date_view"
+        app:layout_constraintEnd_toEndOf="@id/date_view"
+        app:layout_constraintStart_toStartOf="@id/date_view" />
+
+    <ImageView
+        android:id="@+id/external_image_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/external_link"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/speaker_detail_name" />
+
+    <TextView
+        android:id="@+id/external_link_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="bit.ly/3uokox8"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/external_image_view"
+        app:layout_constraintStart_toEndOf="@id/external_image_view"
+        app:layout_constraintTop_toTopOf="@id/external_image_view" />
+
+    <ImageView
+        android:id="@+id/clock_imaage_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="41dp"
+        android:src="@drawable/clock"
+        app:layout_constraintBottom_toBottomOf="@id/external_image_view"
+        app:layout_constraintStart_toEndOf="@id/external_link_view"
+        app:layout_constraintTop_toTopOf="@id/external_image_view" />
+
+    <TextView
+        android:id="@+id/clock_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="14:00pm - 15:00pm"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/clock_imaage_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/clock_imaage_view"
+        app:layout_constraintTop_toTopOf="@id/clock_imaage_view" />
+
+    <TextView
+        android:id="@+id/description_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/external_image_view" />
+
+    <TextView
+        android:id="@+id/description_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="@string/description_text"
+        android:textColor="@color/black"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description_title" />
+
+    <TextView
+        android:id="@+id/follow_us_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Follow Devstories on"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description_text_view" />
+
+    <LinearLayout
+        android:id="@+id/socials_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/follow_us_title">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/github" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="36dp"
+            android:src="@drawable/twitter" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="34dp"
+            android:src="@drawable/github" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:src="@drawable/instagram" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/youtube" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_register_event"
+        style="@style/Theme.DevStoriesAfrica.CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="33dp"
+        android:backgroundTint="@color/yellow"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/socials_layout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
