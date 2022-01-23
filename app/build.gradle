@@ -13,10 +13,26 @@ android {
         applicationId "com.devstoriesafrica.devstoriesafrica"
         minSdk 21
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "appType"
+    productFlavors {
+        User {
+            dimension "appType"
+            applicationIdSuffix ".user"
+            versionCode 1
+            versionName "1.0"
+        }
+
+        Admin {
+            dimension "appType"
+            applicationIdSuffix ".admin"
+            versionCode 1
+            versionName "1.0"
+        }
+
     }
 
     buildFeatures {

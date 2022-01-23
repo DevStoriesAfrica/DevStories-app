@@ -1,4 +1,4 @@
-package com.devstoriesafrica.devstoriesafrica.di
+package com.devstoriesafrica.devstoriesafrica
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
