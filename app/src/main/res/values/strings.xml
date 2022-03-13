@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="user_app_name">DevStories Africa</string>
     <string name="admin_app_name">DevStories Africa Admin</string>
@@ -32,5 +33,5 @@
     <string name="or_sign_up_with">Or sign up with</string>
     <string name="or_sign_in_with">Or sign in with</string>
     <string name="description_text">This month\'s session will be on Career Change Management. Are you looking to make a leap in your career? Join the session to learn how to hit the ground running and get the most out of your career change.</string>
-
+    <string name="logout_string">Logout</string>
 </resources>

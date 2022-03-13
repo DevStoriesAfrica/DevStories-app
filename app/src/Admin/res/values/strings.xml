@@ -1,1 +1,6 @@
-<resources></resources>
+<resources>
+    <string name="username_placeholder">username</string>
+    <string name="add_partners_title">Add Partners</string>
+    <string name="logout_string">Logout</string>
+    <string name="create_event_txt">Create event</string>
+</resources>
