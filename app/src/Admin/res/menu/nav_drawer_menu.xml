@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/addEventFragment"
+        android:title="@string/create_event_txt"
+        android:icon="@drawable/ic_add_event_circle_24"
+        android:checked="true"
+        app:itemIconTint="@color/blue"
+        app:itemTextAppearance="@style/Theme.DevStoriesAfrica.CustomNavDrawerTextStyle"
+        app:itemIconSize="@dimen/_24sdp"/>
+
+    <item
+        android:id="@+id/addPartnersFragment"
+        android:icon="@drawable/ic_round_handshake_24"
+        android:title="@string/add_partners_title"
+        app:itemIconTint="@color/blue"
+        app:itemIconSize="@dimen/_24sdp"
+        app:itemTextAppearance="@style/Theme.DevStoriesAfrica.CustomNavDrawerTextStyle"/>
+
+    <item
+        android:id="@+id/logOut"
+        android:title="@string/logout_string"
+        android:icon="@drawable/ic_round_logout_24"
+        app:itemIconSize="@dimen/_24sdp"
+        android:iconTint="@color/blue"
+        app:itemTextAppearance="@style/Theme.DevStoriesAfrica.CustomNavDrawerTextStyle"
+        />
+
+</menu>
