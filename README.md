@@ -44,7 +44,7 @@ To get this project up and running locally, you must already have Android Studio
 - Github: [DevStoriesAfrica](https://github.com/)
 - Twitter: [@devstoriesafric](https://twitter.com/devstoriesafric)
 - LinkedIn: [developerstoriesafrica](https://www.linkedin.com/company/developerstoriesafrica/)
-- Join our [Slack](https://join.slack.com/t/devstoriesafrica/shared_invite/zt-10x23nhg7-0OHJiejfqFOJRNqDBI~TTQ) Workspace
+- Join our [Slack](https://join.slack.com/t/devstoriesafrica/shared_invite/zt-152yb8dtj-z6L7fuCGB0TXDwhQHUpipQ) Workspace
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are always welcome!
